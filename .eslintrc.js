@@ -23,37 +23,6 @@ module.exports = {
   },
   plugins: ['react-hooks'],
   rules: {
-    camelcase: [
-      'error',
-      {
-        ignoreDestructuring: true,
-      },
-    ],
-    'consistent-this': ['error', 'self'],
-    semi: ['error', 'never'],
-
     'react/jsx-filename-extension': [1, { extensions: ['.js'] }],
-    'react/no-direct-mutation-state': 'error',
-    'react/sort-prop-types': 'error',
-    'react/forbid-prop-types': 'off',
-    'react-hooks/rules-of-hooks': 'error',
-
-    'react/no-direct-mutation-state': 'error',
-    'react/sort-prop-types': 'error',
-
-    'import/no-unresolved': 'off',
-    'import/extensions': 'off',
-
-    'react/jsx-props-no-spreading': 'off',
-
-    'max-len': [
-      'error',
-      100,
-      2,
-      {
-        ignoreUrls: true,
-      },
-    ], // airbnb is allowing some edge cases
-    'import/no-extraneous-dependencies': 0,
-  }
+  },
 };
