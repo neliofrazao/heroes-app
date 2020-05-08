@@ -7,14 +7,7 @@ const LOADER_HEIGHT = 430
 const RouteLoader = () => {
   return (
     <div data-testid="core-routeloader" style={{ width: LOADER_WIDTH }}>
-      <ContentLoader
-        ariaLabel="pageLoadingMessage"
-        height={LOADER_HEIGHT}
-        width={LOADER_WIDTH}
-        speed={2}
-        primaryColor="#f3f3f3"
-        secondaryColor="#ecebeb"
-      >
+      <ContentLoader height={LOADER_HEIGHT} width={LOADER_WIDTH} speed={2}>
         <rect x="23" y="102" rx="4" ry="4" width="101" height="15" />
         <rect x="23" y="80" rx="3" ry="3" width="75" height="16" />
         <circle cx="43" cy="44" r="21" />

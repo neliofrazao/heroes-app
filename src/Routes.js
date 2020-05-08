@@ -1,12 +1,16 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import HeroList from './Pages/HeroList'
+import React, { Suspense, lazy } from 'react'
+import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom'
+import RouteLoader from './utils/RouteLoader'
+
+const HeroList = withRouter(lazy(() => import('./Pages/HeroList')))
 
 const Routes = () => (
   <Router>
-    <Switch>
-      <Route path="/" exact component={HeroList} />
-    </Switch>
+    <Suspense fallback={<RouteLoader />}>
+      <Switch>
+        <Route path="/" exact component={HeroList} />
+      </Switch>
+    </Suspense>
   </Router>
 )
 
