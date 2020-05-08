@@ -13,4 +13,11 @@ describe('Layout()', () => {
     const { getByTestId } = render(<BaseRender />)
     expect(getByTestId('data-layout')).toBeDefined()
   })
+
+  test('should render layout component children', () => {
+    const { getByTestId } = render(<BaseRender />)
+    const SUT = getByTestId('data-html-elemnt').innerHTML
+
+    expect(SUT).toBe('Some text')
+  })
 })
