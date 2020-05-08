@@ -1,9 +1,10 @@
 import React from 'react'
 import Layout from './utils/Layout'
+import Routes from './Routes'
 
 const App = () => (
   <Layout>
-    <div className="App">hero app</div>
+    <Routes />
   </Layout>
 )
 
