@@ -5,11 +5,7 @@ import Routes from './Routes'
 
 describe('Routes', () => {
   test('Should load HeroList route', async () => {
-    const { getByTestId } = render(
-      injectRouter(<Routes />, {
-        route: '/',
-      }),
-    )
+    const { getByTestId } = render(injectRouter(<Routes />))
     await waitForElement(() => getByTestId('data-hero-list'))
   })
 })
