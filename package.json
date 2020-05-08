@@ -14,19 +14,40 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "npm run test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint:fix": "eslint src --fix"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm test"
+      "pre-push": "test:coverage"
     }
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix"
+      "eslint --fix",
+      "git add"
     ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/dist/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts",
+      "!src/**/*.stories.{js,jsx,ts,tsx}",
+      "!src/**/*.styles.{js,jsx,ts,tsx}",
+      "!src/*/translation/**/*.js",
+      "!src/**/index.js",
+      "!**/node_modules"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80
+      }
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
