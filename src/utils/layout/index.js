@@ -5,8 +5,10 @@ import GlobalStyle from './Layout.styles'
 
 const Layout = ({ children }) => (
   <>
-    <Header />
-    <div data-testid="data-layout">{children}</div>
+    <div data-testid="data-layout">
+      <Header />
+      <main>{children}</main>
+    </div>
     <GlobalStyle />
   </>
 )
