@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 import { Button, ListItem } from '@material-ui/core'
 import NavLink from '../../Shared/NavLink'
 
-const MenuItem = ({ children, link, ...props }) => (
+const MenuItem = ({ children, link, title, ...props }) => (
   <ListItem {...props}>
     <Button
       component={NavLink}
       to={link}
+      title={title}
       activeStyle={{
         fontWeight: 'bold',
       }}
@@ -19,7 +20,12 @@ const MenuItem = ({ children, link, ...props }) => (
 
 MenuItem.propTypes = {
   link: PropTypes.string.isRequired,
+  title: PropTypes.string,
   children: PropTypes.string.isRequired,
+}
+
+MenuItem.defaultProps = {
+  title: '',
 }
 
 export default MenuItem
