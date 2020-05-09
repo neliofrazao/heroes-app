@@ -26,5 +26,6 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js'] }],
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
 };
