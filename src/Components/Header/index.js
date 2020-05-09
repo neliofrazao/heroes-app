@@ -16,8 +16,8 @@ const Header = () => (
         </Grid>
         <Grid item xs={8}>
           <Menu>
-            <MenuItem link="/hero">Home</MenuItem>
-            <MenuItem link="/busca">Busca</MenuItem>
+            <MenuItem link="/">Home</MenuItem>
+            <MenuItem link="/search">Busca</MenuItem>
           </Menu>
         </Grid>
       </Grid>
