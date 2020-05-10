@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { Grid } from '@material-ui/core'
 import Card from '../../Components/Card'
+import Loading from '../../Shared/Loading'
 import api from '../../api/characters/characters'
 
 const HeroList = () => {
@@ -26,7 +27,7 @@ const HeroList = () => {
       <>
         <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3}>
           {isLoad ? (
-            <p>Carregando</p>
+            <Loading />
           ) : (
             <>
               {characters.results &&
