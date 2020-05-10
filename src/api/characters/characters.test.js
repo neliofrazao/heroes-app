@@ -15,4 +15,18 @@ describe('Characters()', () => {
     expect(result.url).toBe('/characters')
     http.get.mockRestore()
   })
+
+  test('should GET characters detail url api with right param', async () => {
+    expect.assertions(1)
+    jest.spyOn(http, 'get')
+    http.get.mockImplementation((url) => ({
+      data: {
+        url,
+      },
+    }))
+
+    const result = await api.getCharacterDetail('1011334')
+    expect(result.url).toBe('/characters/1011334')
+    http.get.mockRestore()
+  })
 })
