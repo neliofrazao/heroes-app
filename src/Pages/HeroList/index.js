@@ -24,13 +24,13 @@ const HeroList = () => {
   return (
     <div data-testid="data-hero-list">
       <>
-        <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={4}>
+        <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3}>
           {!isLoad && characters.results ? (
             <>
               {characters.results.map(({ id, name, thumbnail: { path, extension } }) => (
                 <Fragment key={id}>
-                  <Grid item xs={3}>
-                    <Card imgUrl={`${path}.${extension}`} name={name} link="/link" />
+                  <Grid item xs={12} md={4} lg={3}>
+                    <Card imgUrl={`${path}.${extension}`} name={name} link={`/hero/${id}`} />
                   </Grid>
                 </Fragment>
               ))}
