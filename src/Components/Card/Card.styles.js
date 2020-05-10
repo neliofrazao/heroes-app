@@ -4,10 +4,10 @@ import color from '../../utils/Theme/colors'
 
 const DataCard = styled(Card)`
   & .MuiCardMedia-root {
-    height: 200px;
+    height: 250px;
   }
   & .MuiButtonBase-root {
-    padding: 1.2em;
+    padding: 1.2em 1em;
     width: 100%;
     background: ${color.graphite};
     &:hover {

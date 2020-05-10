@@ -7,7 +7,9 @@ import Shell from './Main.styles'
 const Main = ({ children }) => (
   <Shell>
     <Container>
-      <Paper>{children}</Paper>
+      <Paper>
+        <div className="container">{children}</div>
+      </Paper>
     </Container>
   </Shell>
 )
