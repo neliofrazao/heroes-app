@@ -30,4 +30,11 @@ describe('Card()', () => {
 
     expect(SUT).toBe('some text')
   })
+
+  test('should show img tag with right value ', () => {
+    render(injectRouter(<BaseRender />))
+    const SUT = screen.getByAltText(/some name/i).outerHTML
+
+    expect(SUT).toBe('<img src="image.jpg" alt="some name">')
+  })
 })
