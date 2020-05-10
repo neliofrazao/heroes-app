@@ -8,13 +8,13 @@ const Card = ({ imgUrl, name, link }) => (
   <DataCard>
     <CardMedia image={imgUrl} title={name} />
     <CardContent>
-      <Typography gutterBottom variant="h5" component="h2">
+      <Typography gutterBottom variant="h6" component="h2">
         {name}
       </Typography>
     </CardContent>
     <CardActions>
       <ButtonLink size="small" color="primary" variant="contained" link={link} title={name}>
-        Acessar o perfil do personagem
+        Perfil do personagem
       </ButtonLink>
     </CardActions>
   </DataCard>

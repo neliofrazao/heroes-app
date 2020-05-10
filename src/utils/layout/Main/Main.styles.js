@@ -4,7 +4,7 @@ const Shell = styled.main`
   position: relative;
   z-index: 10;
   top: -4em;
-  & .MuiPaper-root {
+  & .container {
     padding: 2em;
     min-height: 10em;
   }
