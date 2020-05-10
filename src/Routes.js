@@ -1,24 +1,32 @@
-import React, { Suspense, lazy } from 'react'
+import React, { useState, useMemo, Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom'
 import RouteLoader from './utils/RouteLoader'
 import Layout from './utils/Layout'
+import LoadContext from './Shared/Loading/store'
 
 const HeroList = withRouter(lazy(() => import('./Pages/HeroList')))
 const HeroDetail = withRouter(lazy(() => import('./Pages/HeroDetail')))
 const SearchHero = withRouter(lazy(() => import('./Pages/SearchHero')))
 
-const Routes = () => (
-  <Router>
-    <Suspense fallback={<RouteLoader />}>
-      <Layout>
-        <Switch>
-          <Route path="/" exact component={HeroList} />
-          <Route path="/hero/:heroId" exact component={HeroDetail} />
-          <Route path="/search" exact component={SearchHero} />
-        </Switch>
-      </Layout>
-    </Suspense>
-  </Router>
-)
+const Routes = () => {
+  const [isLoad, setIsLoad] = useState(false)
+  const provideLoad = useMemo(() => ({ isLoad, setIsLoad }), [isLoad, setIsLoad])
+
+  return (
+    <Router>
+      <Suspense fallback={<RouteLoader />}>
+        <LoadContext.Provider value={provideLoad}>
+          <Layout>
+            <Switch>
+              <Route path="/" exact component={HeroList} />
+              <Route path="/hero/:heroId" exact component={HeroDetail} />
+              <Route path="/search" exact component={SearchHero} />
+            </Switch>
+          </Layout>
+        </LoadContext.Provider>
+      </Suspense>
+    </Router>
+  )
+}
 
 export default Routes
