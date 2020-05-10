@@ -23,4 +23,11 @@ describe('Card()', () => {
 
     expect(SUT).toBe('some name')
   })
+
+  test('should show p tag with right value ', () => {
+    render(injectRouter(<BaseRender />))
+    const SUT = screen.getByText('some text').innerHTML
+
+    expect(SUT).toBe('some text')
+  })
 })
