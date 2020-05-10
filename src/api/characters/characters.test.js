@@ -2,7 +2,7 @@ import http from '../../utils/http'
 import api from './characters'
 
 describe('Characters()', () => {
-  test('should GET characters url api with right param', async () => {
+  test('should GET characters url with right param', async () => {
     expect.assertions(1)
     jest.spyOn(http, 'get')
     http.get.mockImplementation((url) => ({
@@ -16,7 +16,7 @@ describe('Characters()', () => {
     http.get.mockRestore()
   })
 
-  test('should GET characters detail url api with right param', async () => {
+  test('should GET characters detail url with right param', async () => {
     expect.assertions(1)
     jest.spyOn(http, 'get')
     http.get.mockImplementation((url) => ({
