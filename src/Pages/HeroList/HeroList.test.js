@@ -31,4 +31,12 @@ describe('HeroList()', () => {
       expect(api.getCharacters).toHaveReturnedWith(response)
     })
   })
+
+  test('should receive error', async () => {
+    api.getCharacters = jest.fn().mockRejectedValueOnce({})
+    render(<HeroList />)
+    await wait(() => {
+      expect(api.getCharacters).toHaveBeenCalledTimes(1)
+    })
+  })
 })
