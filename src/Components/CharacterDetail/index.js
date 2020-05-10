@@ -4,7 +4,7 @@ import { Grid, Typography } from '@material-ui/core'
 import CharacterContainer from './CharacterDetail.styles'
 
 const CharacterDetail = ({ characterName, characterDescription, thumbnailPath }) => (
-  <CharacterContainer>
+  <CharacterContainer data-testid="data-Character-detail">
     <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3}>
       <Grid item xs={4}>
         <div className="character-image">
