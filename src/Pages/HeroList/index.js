@@ -1,12 +1,12 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useContext, Fragment, useEffect, useState } from 'react'
 import { Grid } from '@material-ui/core'
 import Card from '../../Components/Card'
-import Loading from '../../Shared/Loading'
 import api from '../../api/characters/characters'
+import LoadContext from '../../Shared/Loading/store'
 
 const HeroList = () => {
   const [characters, setCharacters] = useState([])
-  const [isLoad, setIsLoad] = useState(false)
+  const { isLoad, setIsLoad } = useContext(LoadContext)
 
   useEffect(() => {
     const getCharactersData = async () => {
@@ -20,15 +20,13 @@ const HeroList = () => {
       setIsLoad(false)
     }
     getCharactersData()
-  }, [])
+  }, [setIsLoad])
 
   return (
     <div data-testid="data-hero-list">
       <>
         <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3}>
-          {isLoad ? (
-            <Loading />
-          ) : (
+          {!isLoad && (
             <>
               {characters.results &&
                 characters.results.length > 1 &&
