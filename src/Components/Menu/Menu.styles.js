@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 const Nav = styled.nav`
   text-align: right;
+  & .active {
+    font-weight: bold;
+  }
   & .MuiListItem-root {
     display: inline-block;
     width: auto;
