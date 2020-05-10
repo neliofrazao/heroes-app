@@ -10,7 +10,13 @@ const getCharacterDetail = async (heroId) => {
   return data
 }
 
+const getCharacterSerie = async (heroId) => {
+  const { data } = await http.get(`/characters/${heroId}/series`)
+  return data
+}
+
 export default {
   getCharacters,
   getCharacterDetail,
+  getCharacterSerie,
 }
