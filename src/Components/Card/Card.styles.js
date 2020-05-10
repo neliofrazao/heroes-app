@@ -4,7 +4,7 @@ import color from '../../utils/Theme/colors'
 
 const DataCard = styled(Card)`
   & .MuiCardMedia-root {
-    height: 250px;
+    height: 310px;
   }
   & .MuiButtonBase-root {
     padding: 1.2em 1em;
