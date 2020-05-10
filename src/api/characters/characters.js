@@ -5,6 +5,12 @@ const getCharacters = async () => {
   return data
 }
 
+const getCharacterDetail = async (heroId) => {
+  const { data } = await http.get(`/characters/${heroId}`)
+  return data
+}
+
 export default {
   getCharacters,
+  getCharacterDetail,
 }
