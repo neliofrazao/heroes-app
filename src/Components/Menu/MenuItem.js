@@ -1,20 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, ListItem } from '@material-ui/core'
-import NavLink from '../../Shared/NavLink'
+import { ListItem } from '@material-ui/core'
+import ButtonLink from '../../Shared/ButtonLink'
 
 const MenuItem = ({ children, link, title, ...props }) => (
   <ListItem {...props}>
-    <Button
-      component={NavLink}
-      to={link}
-      title={title}
-      activeStyle={{
-        fontWeight: 'bold',
-      }}
-    >
+    <ButtonLink link={link} title={title}>
       {children}
-    </Button>
+    </ButtonLink>
   </ListItem>
 )
 
