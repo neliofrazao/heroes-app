@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core'
 import Card from '../../Shared/Card'
 import ButtonLink from '../../Shared/ButtonLink'
 import SearchForm from '../../Components/SearchForm'
+import EmptySatate from '../../Components/EmptySatate'
 import api from '../../api/characters/characters'
 import LoadContext from '../../Shared/Loading/store'
 
@@ -46,8 +47,7 @@ const HeroList = () => {
                   <SearchForm onSubmit={onSubmit} />
                 </Grid>
               </Grid>
-              {characters.results &&
-                characters.results.length > 1 &&
+              {characters.results && characters.results.length > 1 ? (
                 characters.results.map(({ id, name, thumbnail: { path, extension } }) => (
                   <Fragment key={id}>
                     <Grid item xs={12} md={4} lg={3}>
@@ -58,7 +58,10 @@ const HeroList = () => {
                       </Card>
                     </Grid>
                   </Fragment>
-                ))}
+                ))
+              ) : (
+                <EmptySatate />
+              )}
             </>
           )}
         </Grid>

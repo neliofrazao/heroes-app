@@ -1,13 +1,14 @@
 import React from 'react'
-import { Grid, Paper, Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
+import Container from './EmptySatate.styles'
 
 const EmptySatate = () => (
-  <Paper className="phone-detail">
+  <Container>
     <Grid container justify="center" alignItems="center">
       <Typography variant="body1" gutterBottom>
         Esse heroi ainda não foi criado!
       </Typography>
     </Grid>
-  </Paper>
+  </Container>
 )
 export default EmptySatate
