@@ -1,10 +1,17 @@
 import React from 'react'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
+import mediaQuery from 'css-mediaquery'
 
-const injectRouter = (
+export const injectRouter = (
   Component,
   { route = '/', history = createMemoryHistory({ initialEntries: [route] }) } = {},
 ) => <Router history={history}>{Component}</Router>
 
-export default injectRouter
+export const createMatchMedia = (width) => {
+  return (query) => ({
+    matches: mediaQuery.match(query, { width }),
+    addListener: () => {},
+    removeListener: () => {},
+  })
+}
