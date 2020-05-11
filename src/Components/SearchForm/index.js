@@ -1,16 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, TextField } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
 import { useForm } from 'react-hook-form'
+import { InputField } from '../../Shared'
 import Form from './SearchForm.styles'
 
 const SearchForm = ({ onSubmit }) => {
-  const { handleSubmit, register } = useForm()
+  const { handleSubmit, register, errors } = useForm()
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)} data-testid="data-search-form">
-      <TextField label="Buscar por Heróis" inputRef={register} name="heroName" />
+      <InputField
+        label="Buscar por Heróis"
+        inputRef={register({ required: true })}
+        name="heroName"
+        errors={errors}
+      />
       <Button type="submit" title="buscar heróis">
         <SearchIcon />
       </Button>
