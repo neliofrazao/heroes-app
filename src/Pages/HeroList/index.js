@@ -1,6 +1,6 @@
 import React, { useContext, Fragment, useEffect, useState } from 'react'
 import { Grid } from '@material-ui/core'
-import Card from '../../Components/Card'
+import Card from '../../Shared/Card'
 import api from '../../api/characters/characters'
 import LoadContext from '../../Shared/Loading/store'
 

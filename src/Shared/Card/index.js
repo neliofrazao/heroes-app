@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { CardActions, CardContent, CardMedia, Typography } from '@material-ui/core'
-import ButtonLink from '../../Shared/ButtonLink'
+import ButtonLink from '../ButtonLink'
 import DataCard from './Card.styles'
 
 const Card = ({ imgUrl, name, link }) => (
