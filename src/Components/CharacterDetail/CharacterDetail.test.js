@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import injectRouter from '../../helpers/testHelpers'
+import { injectRouter, createMatchMedia } from '../../helpers/testHelpers'
 import CharacterDetail from './index'
 
 const BaseRender = () => (
@@ -11,7 +11,11 @@ const BaseRender = () => (
   />
 )
 
-describe('Card()', () => {
+describe('CharacterDetail()', () => {
+  beforeAll(() => {
+    window.matchMedia = createMatchMedia(window.innerWidth)
+  })
+
   test('should render CharacterDetail component', () => {
     const { getByTestId } = render(injectRouter(<BaseRender />))
     expect(getByTestId('data-Character-detail')).toBeDefined()
