@@ -1,6 +1,7 @@
 import React, { useContext, Fragment, useEffect, useState } from 'react'
 import { Grid } from '@material-ui/core'
 import Card from '../../Shared/Card'
+import ButtonLink from '../../Shared/ButtonLink'
 import api from '../../api/characters/characters'
 import LoadContext from '../../Shared/Loading/store'
 
@@ -33,7 +34,11 @@ const HeroList = () => {
                 characters.results.map(({ id, name, thumbnail: { path, extension } }) => (
                   <Fragment key={id}>
                     <Grid item xs={12} md={4} lg={3}>
-                      <Card imgUrl={`${path}.${extension}`} name={name} link={`/hero/${id}`} />
+                      <Card imgUrl={`${path}.${extension}`} name={name}>
+                        <ButtonLink variant="contained" link={`/hero/${id}`} name={name}>
+                          Perfil do personagem
+                        </ButtonLink>
+                      </Card>
                     </Grid>
                   </Fragment>
                 ))}

@@ -7,6 +7,7 @@ const DataCard = styled(Card)`
     height: 310px;
   }
   & .MuiButtonBase-root {
+    color: #fff;
     padding: 1.2em 1em;
     width: 100%;
     background: ${color.graphite};
