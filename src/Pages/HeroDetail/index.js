@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import RouterPropTypes from 'react-router-prop-types'
 import CharacterDetail from '../../Components/CharacterDetail'
 import SeriesList from '../../Components/SeriesList'
 import api from '../../api/characters/characters'
@@ -29,10 +30,11 @@ const mountCharactersInfo = ({ data: { results } }) => {
   return characters
 }
 
-const HeroDetail = () => {
+const HeroDetail = ({ match }) => {
   const [characters, setCharacters] = useState({ name: '', description: '', thumbnail: '' })
   const [series, setSeries] = useState([])
   const { isLoad, setIsLoad } = useContext(LoadContext)
+  const { heroId } = match.params
 
   useEffect(() => {
     const getCharactersData = async () => {
@@ -41,7 +43,7 @@ const HeroDetail = () => {
         const {
           dataCharacter,
           dataSerie: { data },
-        } = await fetchHeroData('1009146')
+        } = await fetchHeroData(heroId)
         setCharacters(mountCharactersInfo(dataCharacter))
         setSeries(data)
       } catch (error) {
@@ -50,7 +52,7 @@ const HeroDetail = () => {
       setIsLoad(false)
     }
     getCharactersData()
-  }, [setIsLoad])
+  }, [heroId, setIsLoad])
 
   return (
     <div data-testid="data-hero-detail">
@@ -68,6 +70,10 @@ const HeroDetail = () => {
       </>
     </div>
   )
+}
+
+HeroDetail.propTypes = {
+  match: RouterPropTypes.match.isRequired,
 }
 
 export default HeroDetail
