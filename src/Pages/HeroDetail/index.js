@@ -31,7 +31,7 @@ const mountCharactersInfo = ({ data: { results } }) => {
 }
 
 const HeroDetail = ({ match }) => {
-  const [characters, setCharacters] = useState({ name: '', description: '', thumbnail: '' })
+  const [characters, setCharacters] = useState([])
   const [series, setSeries] = useState([])
   const { isLoad, setIsLoad } = useContext(LoadContext)
   const { heroId } = match.params
@@ -56,18 +56,16 @@ const HeroDetail = ({ match }) => {
 
   return (
     <div data-testid="data-hero-detail">
-      <>
-        {!isLoad && characters.id !== '' && (
-          <>
-            <CharacterDetail
-              characterName={characters.name}
-              characterDescription={characters.description}
-              thumbnailPath={characters.thumbnail}
-            />
-            <SeriesList seriesInfo={series} />
-          </>
-        )}
-      </>
+      {!isLoad && !!characters.id && (
+        <>
+          <CharacterDetail
+            characterName={characters.name}
+            characterDescription={characters.description}
+            thumbnailPath={characters.thumbnail}
+          />
+          <SeriesList seriesInfo={series} />
+        </>
+      )}
     </div>
   )
 }
