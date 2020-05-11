@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, wait } from '@testing-library/react'
+import { render, screen, fireEvent, waitForElement } from '@testing-library/react'
 import HeroList from './index'
 import api from '../../api/characters/characters'
 
@@ -29,25 +29,34 @@ describe('HeroList()', () => {
     status: 'Ok',
   }
 
-  test('should render hero list component ', () => {
+  test('should render hero list component ', async () => {
     const { getByTestId } = render(<HeroList />)
+    await waitForElement(() => getByTestId('data-hero-list'))
     expect(getByTestId('data-hero-list')).toBeDefined()
   })
 
   test('should api return with right', async () => {
     api.getCharacters = jest.fn().mockReturnValueOnce(response)
+    const { getByTestId } = render(<HeroList />)
 
-    render(<HeroList />)
-    await wait(() => {
-      expect(api.getCharacters).toHaveReturnedWith(response)
-    })
+    await waitForElement(() => getByTestId('data-hero-list'))
+    expect(api.getCharacters).toHaveReturnedWith(response)
+    expect(api.getCharacters).toHaveBeenCalledTimes(1)
   })
 
   test('should receive error', async () => {
     api.getCharacters = jest.fn().mockRejectedValueOnce({})
-    render(<HeroList />)
-    await wait(() => {
-      expect(api.getCharacters).toHaveBeenCalledTimes(1)
-    })
+    const { getByTestId } = render(<HeroList />)
+    await waitForElement(() => getByTestId('data-hero-list'))
+
+    expect(api.getCharacters).toHaveBeenCalledTimes(1)
+  })
+
+  test('should show required menssage ', async () => {
+    const { getByTestId } = render(<HeroList />)
+    fireEvent.click(getByTestId('data-button-search'))
+    await waitForElement(() => getByTestId('data-hero-list'))
+    const SUT = screen.getByText('Esse campo é obrigatório')
+    expect(SUT).toBeDefined()
   })
 })
