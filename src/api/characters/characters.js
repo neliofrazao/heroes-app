@@ -5,6 +5,11 @@ const getCharacters = async () => {
   return data
 }
 
+const seacrhCharacters = async (heroName) => {
+  const { data } = await http.get(`/characters?nameStartsWith=${heroName}`)
+  return data
+}
+
 const getCharacterDetail = async (heroId) => {
   const { data } = await http.get(`/characters/${heroId}`)
   return data
@@ -17,6 +22,7 @@ const getCharacterSerie = async (heroId) => {
 
 export default {
   getCharacters,
+  seacrhCharacters,
   getCharacterDetail,
   getCharacterSerie,
 }
