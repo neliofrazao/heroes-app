@@ -19,9 +19,6 @@ const Header = () => (
             <MenuItem link="/" title="Home">
               Home
             </MenuItem>
-            <MenuItem link="/search" title="Busca">
-              Busca
-            </MenuItem>
           </Menu>
         </Grid>
       </Grid>

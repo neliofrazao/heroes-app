@@ -6,7 +6,6 @@ import LoadContext from './Shared/Loading/store'
 
 const HeroList = withRouter(lazy(() => import('./Pages/HeroList')))
 const HeroDetail = withRouter(lazy(() => import('./Pages/HeroDetail')))
-const SearchHero = withRouter(lazy(() => import('./Pages/SearchHero')))
 
 const Routes = () => {
   const [isLoad, setIsLoad] = useState(false)
@@ -20,7 +19,6 @@ const Routes = () => {
             <Switch>
               <Route path="/" exact component={HeroList} />
               <Route path="/hero/:heroId" exact component={HeroDetail} />
-              <Route path="/search" exact component={SearchHero} />
             </Switch>
           </Layout>
         </LoadContext.Provider>
