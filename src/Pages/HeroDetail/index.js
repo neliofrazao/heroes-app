@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import LoadContext from '../../Shared/Loading/store'
+import CharacterDetail from '../../Components/CharacterDetail'
 import api from '../../api/characters/characters'
+import LoadContext from '../../Shared/Loading/store'
 
 const fetchHeroData = async (heroId) => {
   const [dataCharacter, dataSerie] = await Promise.all([
@@ -28,11 +29,9 @@ const mountCharactersInfo = ({ data: { results } }) => {
 }
 
 const HeroDetail = () => {
-  // eslint-disable-next-line no-unused-vars
   const [characters, setCharacters] = useState({ name: '', description: '', thumbnail: '' })
   // eslint-disable-next-line no-unused-vars
   const [series, setSeries] = useState([])
-  // eslint-disable-next-line no-unused-vars
   const { isLoad, setIsLoad } = useContext(LoadContext)
 
   useEffect(() => {
@@ -53,7 +52,21 @@ const HeroDetail = () => {
     getCharactersData()
   }, [setIsLoad])
 
-  return <div data-testid="data-hero-detail">HeroDetail</div>
+  return (
+    <div data-testid="data-hero-detail">
+      <>
+        {!isLoad && characters.id !== '' && (
+          <>
+            <CharacterDetail
+              characterName={characters.name}
+              characterDescription={characters.description}
+              thumbnailPath={characters.thumbnail}
+            />
+          </>
+        )}
+      </>
+    </div>
+  )
 }
 
 export default HeroDetail
