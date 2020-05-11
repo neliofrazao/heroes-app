@@ -28,6 +28,7 @@
     "test": "react-scripts test",
     "test:coverage": "npm run test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
+    "lint": "eslint src",
     "lint:fix": "eslint src --fix"
   },
   "husky": {
@@ -38,7 +39,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix"
+      "npm run eslint --fix"
     ]
   },
   "jest": {
