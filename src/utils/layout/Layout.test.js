@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import injectRouter from '../../helpers/testHelpers'
+import { injectRouter } from '../../helpers/testHelpers'
 import Layout from './index'
 
 const BaseRender = () => (
