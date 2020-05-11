@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import RouterPropTypes from 'react-router-prop-types'
-import CharacterDetail from '../../Components/CharacterDetail'
-import SeriesList from '../../Components/SeriesList'
+import { CharacterDetail, SeriesList } from '../../Components'
 import api from '../../api/characters/characters'
 import LoadContext from '../../Shared/Loading/store'
 

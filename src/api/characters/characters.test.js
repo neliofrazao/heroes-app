@@ -52,7 +52,6 @@ describe('Characters()', () => {
         url,
       },
     }))
-
     const result = await api.seacrhCharacters('Adam')
     expect(result.url).toBe('/characters?nameStartsWith=Adam')
     http.get.mockRestore()
