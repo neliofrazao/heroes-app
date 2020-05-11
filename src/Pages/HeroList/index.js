@@ -2,6 +2,7 @@ import React, { useContext, Fragment, useEffect, useState } from 'react'
 import { Grid } from '@material-ui/core'
 import Card from '../../Shared/Card'
 import ButtonLink from '../../Shared/ButtonLink'
+import SearchForm from '../../Components/SearchForm'
 import api from '../../api/characters/characters'
 import LoadContext from '../../Shared/Loading/store'
 
@@ -23,12 +24,28 @@ const HeroList = () => {
     getCharactersData()
   }, [setIsLoad])
 
+  const onSubmit = async ({ heroName }) => {
+    setIsLoad(true)
+    try {
+      const { data } = await api.seacrhCharacters(heroName)
+      setCharacters(data)
+    } catch (error) {
+      setCharacters([])
+    }
+    setIsLoad(false)
+  }
+
   return (
     <div data-testid="data-hero-list">
       <>
-        <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3}>
+        <Grid container spacing={3}>
           {!isLoad && (
             <>
+              <Grid container>
+                <Grid item xs={12} lg={6}>
+                  <SearchForm onSubmit={onSubmit} />
+                </Grid>
+              </Grid>
               {characters.results &&
                 characters.results.length > 1 &&
                 characters.results.map(({ id, name, thumbnail: { path, extension } }) => (
