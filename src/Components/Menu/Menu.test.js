@@ -8,9 +8,6 @@ const BaseRender = () => (
     <MenuItem link="/hero" title="item menu">
       Home
     </MenuItem>
-    <MenuItem link="/busca" title="item menu">
-      Busca
-    </MenuItem>
   </Menu>
 )
 
@@ -24,6 +21,6 @@ describe('Menu()', () => {
     render(injectRouter(<BaseRender />))
     const menuItems = screen.getAllByRole('button').length
 
-    expect(menuItems).toBe(2)
+    expect(menuItems).toBe(1)
   })
 })

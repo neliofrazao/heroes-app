@@ -15,9 +15,10 @@ const SearchForm = ({ onSubmit }) => {
         label="Buscar por Heróis"
         inputRef={register({ required: true })}
         name="heroName"
+        data-testid="data-inptut-search"
         errors={errors}
       />
-      <Button type="submit" title="buscar heróis">
+      <Button type="submit" title="buscar heróis" data-testid="data-button-search">
         <SearchIcon />
       </Button>
     </Form>
