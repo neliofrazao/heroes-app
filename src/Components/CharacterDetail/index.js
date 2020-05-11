@@ -6,12 +6,12 @@ import CharacterContainer from './CharacterDetail.styles'
 const CharacterDetail = ({ characterName, characterDescription, thumbnailPath }) => (
   <CharacterContainer data-testid="data-Character-detail">
     <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3}>
-      <Grid item xs={4}>
+      <Grid item xs={3}>
         <div className="character-image">
           <img src={thumbnailPath} alt={characterName} />
         </div>
       </Grid>
-      <Grid item md={8}>
+      <Grid item md={9}>
         <Typography gutterBottom variant="h3" component="h2">
           {characterName}
         </Typography>
