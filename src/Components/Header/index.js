@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { Menu, MenuItem } from '../Menu'
-import Container from '../../Shared/Container'
+import { Container } from '../../Shared'
 import Head from './Header.styles'
 import logo from '../../assets/images/marvel.jpg'
 

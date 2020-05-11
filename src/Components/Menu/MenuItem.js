@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ListItem } from '@material-ui/core'
-import ButtonLink from '../../Shared/ButtonLink'
+import { ButtonLink } from '../../Shared'
 
 const MenuItem = ({ children, link, title, ...props }) => (
   <ListItem {...props}>

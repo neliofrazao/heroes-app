@@ -1,10 +1,8 @@
 import React, { useContext, Fragment, useEffect, useState } from 'react'
 import { Grid } from '@material-ui/core'
-import Card from '../../Shared/Card'
-import ButtonLink from '../../Shared/ButtonLink'
+import { ButtonLink, Card, LoadContext } from '../../Shared'
 import { SearchForm, EmptySatate } from '../../Components'
 import api from '../../api/characters/characters'
-import LoadContext from '../../Shared/Loading/store'
 
 const HeroList = () => {
   const [characters, setCharacters] = useState([])

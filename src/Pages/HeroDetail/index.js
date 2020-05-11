@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import RouterPropTypes from 'react-router-prop-types'
 import { CharacterDetail, SeriesList } from '../../Components'
 import api from '../../api/characters/characters'
-import LoadContext from '../../Shared/Loading/store'
+import { LoadContext } from '../../Shared'
 
 const fetchHeroData = async (heroId) => {
   const [dataCharacter, dataSerie] = await Promise.all([
