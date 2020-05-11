@@ -100,4 +100,14 @@ describe('HeroDetail()', () => {
     expect(getByTestId('data-Character-detail')).toBeDefined()
     expect(getByText('3-D Man')).toBeDefined()
   })
+
+  test('should receive error', async () => {
+    api.getCharacters = jest.fn().mockRejectedValueOnce({})
+    api.getCharacterDetail = jest.fn().mockRejectedValueOnce({})
+    api.getCharacterSerie = jest.fn().mockRejectedValueOnce({})
+    const { getByTestId } = render(<HeroDetail {...props} />)
+    await waitForElement(() => getByTestId('data-hero-detail'))
+    expect(api.getCharacterSerie).toHaveBeenCalledTimes(1)
+    expect(api.getCharacterSerie).toHaveBeenCalledTimes(1)
+  })
 })
