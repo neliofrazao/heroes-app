@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import CharacterDetail from '../../Components/CharacterDetail'
+import SeriesList from '../../Components/SeriesList'
 import api from '../../api/characters/characters'
 import LoadContext from '../../Shared/Loading/store'
 
@@ -30,7 +31,6 @@ const mountCharactersInfo = ({ data: { results } }) => {
 
 const HeroDetail = () => {
   const [characters, setCharacters] = useState({ name: '', description: '', thumbnail: '' })
-  // eslint-disable-next-line no-unused-vars
   const [series, setSeries] = useState([])
   const { isLoad, setIsLoad } = useContext(LoadContext)
 
@@ -62,6 +62,7 @@ const HeroDetail = () => {
               characterDescription={characters.description}
               thumbnailPath={characters.thumbnail}
             />
+            <SeriesList seriesInfo={series} />
           </>
         )}
       </>
