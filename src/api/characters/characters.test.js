@@ -29,4 +29,18 @@ describe('Characters()', () => {
     expect(result.url).toBe('/characters/1011334')
     http.get.mockRestore()
   })
+
+  test('should GET series url with right param', async () => {
+    expect.assertions(1)
+    jest.spyOn(http, 'get')
+    http.get.mockImplementation((url) => ({
+      data: {
+        url,
+      },
+    }))
+
+    const result = await api.getCharacterSerie('1011334')
+    expect(result.url).toBe('/characters/1011334/series')
+    http.get.mockRestore()
+  })
 })
